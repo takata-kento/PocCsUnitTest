@@ -1,0 +1,40 @@
+﻿<Window x:Class="SampleWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="First Name:" Width="70" Height="30" Margin="5,0,0,0" />
+            <TextBox x:Name="UpdateFirstName" Text="{Binding InsertFirstName}" Width="100" Height="20" Margin="0,0,0,0" />
+            <Label Content="Last Name:" Width="70" Height="30" Margin="5,0,0,0" />
+            <TextBox x:Name="UpdateLastName" Text="{Binding InsertLastName}" Width="100" Height="20" Margin="0,0,0,0" />
+            <Button Content="Insert"  Height="20" Width="60" Margin="5,0,0,0" Command="{Binding InsertCommand}" />
+        </StackPanel>
+
+        <ListView Grid.Row="1" x:Name="SampleListView" ItemsSource="{Binding Users}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="30" Header="Id"  DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Width="100" Header="First Name"  DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Width="100" Header="Last Name"  DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Width="60">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Height="20" Width="45" Command="{Binding DataContext.ListTrashCommand, ElementName=SampleListView}" CommandParameter="{Binding Id}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
