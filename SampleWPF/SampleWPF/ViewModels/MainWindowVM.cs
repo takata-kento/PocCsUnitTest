@@ -24,22 +24,6 @@ namespace SampleWPF.ViewModels
             }
         }
 
-
-        /*
-        public static ObservableCollection<User>? userList { get; set; }
-        public ObservableCollection<User> UserList
-        {
-#pragma warning disable CS8603 // Null 参照戻り値である可能性があります。
-            get => userList;
-#pragma warning restore CS8603 // Null 参照戻り値である可能性があります。
-            set
-            {
-                userList = value;
-            }
-        }
-        */
-
-
         // Insert用データ
         private int insertId=0;
         public int InsertId()
