@@ -1,1 +1,9 @@
 .vs
+/SampleWPF/SampleWPF/bin
+/SampleWPF/SampleWPF/obj
+/SampleWPF/PocMSTest/obj
+/SampleWPF/PocMSTest/bin
+/SampleWPF/PocNUnit/obj
+/SampleWPF/PocNUnit/bin
+/SampleWPF/PocxUnit/obj
+/SampleWPF/PocxUnit/bin
