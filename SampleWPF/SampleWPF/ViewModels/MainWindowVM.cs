@@ -13,7 +13,7 @@ namespace SampleWPF.ViewModels
 {
     public class MainWindowVM
     {
-        public static ObservableCollection<User> users { get; set; }
+        private ObservableCollection<User> users { get; set; }
 
         public ObservableCollection<User> Users
         {
