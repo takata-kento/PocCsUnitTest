@@ -41,6 +41,14 @@ namespace SampleWPF.ViewModels
 
 
         // Insert用データ
+        private int insertId=0;
+        public int InsertId()
+        {
+            int id = insertId;
+            insertId++;
+            return id;
+        }
+
         private string insertFirstName;
         public string InsertFirstName
         {
@@ -78,7 +86,7 @@ namespace SampleWPF.ViewModels
             // LocalDB 更新
             User insertUser = new()
                 {
-                    // Id は LocalDB で自動的に付与される
+                    Id = InsertId(),
                     FirstName = InsertFirstName,
                     LastName = InsertLastName
                 };
