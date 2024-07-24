@@ -60,7 +60,7 @@ namespace SampleWPF.ViewModels
 
         private void DropUserList(int _id)
         {
-            Users.Remove(users.Where(user => user.Id == _id).First());
+            Users.Remove(users.Where(user => user.GetId() == _id).First());
         }
 
         // ForwardedCommand
@@ -68,12 +68,7 @@ namespace SampleWPF.ViewModels
         public void ExecuteInsert()
         {
             // LocalDB 更新
-            User insertUser = new()
-                {
-                    Id = InsertId(),
-                    FirstName = InsertFirstName,
-                    LastName = InsertLastName
-                };
+            User insertUser = new User(InsertId(), InsertFirstName, InsertLastName);
 
             UpdateUserList(insertUser);
         }
